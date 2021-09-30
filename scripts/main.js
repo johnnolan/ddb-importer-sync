@@ -5,7 +5,7 @@ Hooks.once("init", async function () {
 Hooks.on("updateActor", async function (data, diff) {
   if (!game.user.isGM) return false;
 
-  if (data.data.type === "character") {    
+  if (data.data.type === "character") {
     if (diff.data?.attributes?.hp || diff.data?.spells || diff.data?.currency) {
       console.log("DDB Importer Auto Sync | updateActor Triggered");
       sync(data.data._id);
